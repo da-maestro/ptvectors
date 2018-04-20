@@ -1,8 +1,8 @@
 # ptvectors
 ====================================================
 
-    PTVectors inc. LuaVectorLib
-    Copywright (C) 2018 Adam Jackson
+PTVectors inc. LuaVectorLib
+Copywright (C) 2018 Adam Jackson
 
 ====================================================
 
@@ -28,20 +28,22 @@ PTVectors is basically just a header file with a very small C++ that contains tw
 ## Inline Constants
 
 Inline vector constants enable one to specify constant vectors in source in an intuitive way, using operator"" which is new to C++11. 
- "_x", "_mNorth" - A TVector on the positive X-axis
- "_mSouth"       - A TVector on the negative X-axis
- "_y", "_mEast"  - A TVector on the positive Y-axis
- "_mWest"        - A TVector on the negative Y-axis
- "_z", "_mUp"    - A TVector on the positive Z-axis
- "_mDown"        - A TVector on the negative Z-axis
- "_u"            - A PVector on the positive U-axis
- "_v"            - A PVector on the positive V-axis
- "_deg"          - A unit PVector rotated on the plane.
+
+    "_x", "_mNorth" - A TVector on the positive X-axis
+    "_mSouth"       - A TVector on the negative X-axis
+    "_y", "_mEast"  - A TVector on the positive Y-axis
+    "_mWest"        - A TVector on the negative Y-axis
+    "_z", "_mUp"    - A TVector on the positive Z-axis
+    "_mDown"        - A TVector on the negative Z-axis
+    "_u"            - A PVector on the positive U-axis
+    "_v"            - A PVector on the positive V-axis
+    "_deg"          - A unit PVector rotated on the plane.
                    0 degrees points along the +ve u axis
                    90 degrees points along the +ve v axis
                    There is no shorthand way to specify the angle in radians
 
 eg.
+
     PVector uAxis = 1_u;
     PVector floatingHome = 54.3304_u - 138.844_v
     PVector quadrantOne = 45_deg*30;
@@ -55,11 +57,12 @@ eg.
 
 ## Operations and Functions
 
-NOTE: s represents a scalar value
-      P represents a PVector ONLY
-      T represents a TVector ONLY
-      V represents any vector
-      Unless noted otherwise, all operations are constexpr
+NOTE:
+s represents a scalar value
+P represents a PVector ONLY
+T represents a TVector ONLY
+V represents any vector
+Unless noted otherwise, all operations are constexpr
 
 
 ### Unary operators
@@ -102,39 +105,48 @@ NOTE: s represents a scalar value
 
 ### TVector Rotations
 
- rotateTVectorAboutAxis(Tx, Ta, s)
-   rotates Tx about the axis Ta by s radians
-   follows the right hand rule
+rotateTVectorAboutAxis(Tx, Ta, s)
+
+    rotates Tx about the axis Ta by s radians
+    follows the right hand rule
  
- rotateTVectorAboutPointAxis(Tx, To, Ta, s)
-   rotates Tx about an axis originating from To, as above
+rotateTVectorAboutPointAxis(Tx, To, Ta, s)
 
- TVectorSLERP(Ts, Tf, s)
-   expects Ts and Tf to be UNIT VECTORS
-   returns a unit vector that lies on the unit sphere between Ts and Tf, by s
-   NOT constexpr
+    rotates Tx about an axis originating from To, as above
 
- T.calculateUpandRight(Tu, Tr)
-   takes T, and calculates two vectors that point 'up' and 'right'
-   up is assumed to follow the positive z-axis
-   returns a zero vector if T is a zero vector
-   NOT constexpr
+TVectorSLERP(Ts, Tf, s)
+
+    expects Ts and Tf to be UNIT VECTORS
+    returns a unit vector that lies on the unit sphere between Ts and Tf, by s
+    NOT constexpr
+
+T.calculateUpandRight(Tu, Tr)
+
+    takes T, and calculates two vectors that point 'up' and 'right'
+    up is assumed to follow the positive z-axis
+    returns a zero vector if T is a zero vector
+    NOT constexpr
 
 
 ### PVector Rotations
 
- rotatePVectorAboutOrigin(P, s)
-   rotates P about the origin anti-clockwise by s radians
+rotatePVectorAboutOrigin(P, s)
+
+    rotates P about the origin anti-clockwise by s radians
  
- rotatePVectorAboutPoint(Px, Pp, s)
-   rotates Px about Pp anti-clockwise by s radians
+rotatePVectorAboutPoint(Px, Pp, s)
+
+    rotates Px about Pp anti-clockwise by s radians
  
- rotatePVectorLeft(P)
-   rotates P 90 degrees anti-clockwise
+rotatePVectorLeft(P)
+
+    rotates P 90 degrees anti-clockwise
  
- rotatePVectorRight(P)
-   rotates P 90 degrees clockwise
+rotatePVectorRight(P)
+
+    rotates P 90 degrees clockwise
  
- unitVectorAtAngle(s)
-   creates a new unit PVector that subtends an angle s from the u-axis in radians
+unitVectorAtAngle(s)
+
+    creates a new unit PVector that subtends an angle s from the u-axis in radians
 
