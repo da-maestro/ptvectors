@@ -10,27 +10,22 @@ TODO: create documentation for LuaVectorLib
 
 
 
-*** Overview and Installation
+## Overview and Installation
 
 PTVectors is a spacial vector mathematics library for C++11. It is written to be almost entirely constexpr, meaning that PTVectors supports compile time manipulation of vectors and deep optimisation. PTVectors also supports inline vector constants using the new C++11 operator"" feature.
 
 PTVectors is small enough to include directly into any C++11 project and has been tested with GCC 5.4.0. PTVectors also includes LuaVectorLib; a library for Lua 5.3.0 to manipulate PTVectors within Lua code. Like PTVectors, LuaVectorLib is small enough to include directly into your project. PTVectors can be used with or without LuaVectorLib.
 
 PTVectors supports two kinds of vectors:
- * TVector
-     A 3 dimensional vector.
-     TVector is short for Three Vector.
- 
- * PVector
-     A 2 dimensional vector.
-     PVector is short for plane vector.
+ * TVector: A 3 dimensional vector.
+ * PVector: A 2 dimensional vector.
 
 PTVectors is basically just a header file with a very small C++ that contains two functions. So, as mentioned above, it is meant at this point to be included with the rest of the source for your project and compiled in directly. This means there is no installation nessesary, and your project has no extra dependencies.
 
 
 
 
-*** Inline Constants
+## Inline Constants
 
 Inline vector constants enable one to specify constant vectors in source in an intuitive way, using operator"" which is new to C++11. 
  "_x", "_mNorth" - A TVector on the positive X-axis
@@ -58,7 +53,7 @@ eg.
 
 
 
-*** Operations and Functions
+## Operations and Functions
 
 NOTE: s represents a scalar value
       P represents a PVector ONLY
@@ -67,7 +62,7 @@ NOTE: s represents a scalar value
       Unless noted otherwise, all operations are constexpr
 
 
-Unary operators:
+### Unary operators
 
  +V             returns V unchanged
 
@@ -80,7 +75,7 @@ Unary operators:
  unitVector(V)  returns a unit vector in the same direction as V
 
 
-Binary operators:
+### Binary operators
 
  V + V                          returns the sum
 
@@ -100,12 +95,12 @@ Binary operators:
  angleBetweenVectors(V, V)      returns the angle between the vectors in radians
  
 
-Ternary operators:
+### Ternary operators
 
  LERP(V, V, s)  returns the linear interpolation between the vectors by s
 
 
-TVector Rotations:
+### TVector Rotations
 
  rotateTVectorAboutAxis(Tx, Ta, s)
    rotates Tx about the axis Ta by s radians
@@ -126,7 +121,7 @@ TVector Rotations:
    NOT constexpr
 
 
-PVector Rotations:
+### PVector Rotations
 
  rotatePVectorAboutOrigin(P, s)
    rotates P about the origin anti-clockwise by s radians
